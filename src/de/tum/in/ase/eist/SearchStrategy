@@ -1,0 +1,3 @@
+interface SearchStrategy {
+    public int performSearch(List<Chapter> chapters, String name);
+}

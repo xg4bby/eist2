@@ -5,17 +5,16 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-public class BinarySearch {
+public class BinarySearch implements SearchStrategy {
     public int performSearch(List<Chapter> chapters, String name) {
         return binarySearch(chapters, name);
     }
 
     public int binarySearch(List<Chapter> chapters, String name) {
-        List<Chapter> sortedChapters = chapters.stream().sorted().toList();
 
         int lowerBound = 0;
         int upperBound = sortedChapters.size() - 1;
-        int midPoint = -1;
+        int midPoint;
         while (lowerBound <= upperBound) {
 
             midPoint = lowerBound + (upperBound - lowerBound) / 2;
