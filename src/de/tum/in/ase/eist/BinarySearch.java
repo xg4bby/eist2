@@ -14,10 +14,8 @@ public class BinarySearch {
         List<Chapter> sortedChapters = chapters.stream().sorted().toList();
 
         int lowerBound = 0;
-        int upperBound = sortedChapters.size();
+        int upperBound = sortedChapters.size() - 1;
         int midPoint = -1;
-
-
         while (lowerBound <= upperBound) {
 
             midPoint = lowerBound + (upperBound - lowerBound) / 2;
