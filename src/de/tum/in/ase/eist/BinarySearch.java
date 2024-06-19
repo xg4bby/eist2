@@ -13,26 +13,24 @@ public class BinarySearch {
     public int binarySearch(List<Chapter> chapters, String name) {
         List<Chapter> sortedChapters = chapters.stream().sorted().toList();
 
-        boolean found = false;
         int lowerBound = 0;
         int upperBound = sortedChapters.size();
         int midPoint = -1;
 
 
-        while (lowerBound < upperBound) {
+        while (lowerBound <= upperBound) {
 
-            midPoint = (upperBound - lowerBound) / 2;
-
+            midPoint = lowerBound + (upperBound - lowerBound) / 2;
             int result = sortedChapters.get(midPoint).getName().compareTo(name);
 
             if (result == 0) {
                 return sortedChapters.get(midPoint).getPageNumber();
             }
             if (result < 0) {
-                upperBound = midPoint - 1;
+                lowerBound = midPoint + 1;
             }
             if (result > 0) {
-                lowerBound = midPoint + 1;
+                upperBound = midPoint - 1;
             }
         }
         return sortedChapters.get(midPoint).getPageNumber();
