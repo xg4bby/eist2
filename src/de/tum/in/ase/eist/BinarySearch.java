@@ -31,6 +31,6 @@ public class BinarySearch {
                 upperBound = midPoint - 1;
             }
         }
-        return sortedChapters.get(midPoint).getPageNumber();
+        return -1;
     }
 }
