@@ -19,21 +19,20 @@ public class BinarySearch {
         int midPoint = -1;
 
 
-        while (!found) {
-
-            if (upperBound < lowerBound) {
-                return -1;
-            }
+        while (lowerBound < upperBound) {
 
             midPoint = (upperBound - lowerBound) / 2;
-            found = Objects.equals(sortedChapters.get(midPoint).getName(), name);
 
             int result = sortedChapters.get(midPoint).getName().compareTo(name);
+
+            if (result == 0) {
+                return sortedChapters.get(midPoint).getPageNumber();
+            }
             if (result < 0) {
-                upperBound = midPoint;
+                upperBound = midPoint - 1;
             }
             if (result > 0) {
-                lowerBound = midPoint;
+                lowerBound = midPoint + 1;
             }
         }
         return sortedChapters.get(midPoint).getPageNumber();

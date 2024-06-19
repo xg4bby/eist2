@@ -1,6 +1,6 @@
 package de.tum.in.ase.eist;
 
-public class Chapter {
+public class Chapter implements Comparable<Chapter> {
 
 	private final String name;
 	private final int pageNumber;
@@ -21,5 +21,10 @@ public class Chapter {
 	@Override
 	public String toString() {
 		return "Chapter: " + name + ", page: " + pageNumber;
+	}
+
+	@Override
+	public int compareTo(Chapter o) {
+		return this.name.compareTo(o.getName());
 	}
 }
